@@ -1,0 +1,5 @@
+*.pyc
+*.userprefs
+*.pidb
+Temp
+Library
