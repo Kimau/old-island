@@ -3,6 +3,10 @@ using System.Collections;
 
 public class DoomClient : MonoBehaviour 
 {
+	public GameObject puppetPrefab;
+	GameObject playerController;
+	GameObject currentPuppet;
+		
 	// Use this for initialization
 	void Start () 
 	{
@@ -12,11 +16,16 @@ public class DoomClient : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if(currentPuppet)
+		{
+			currentPuppet.transform.position = playerController.transform.position;
+			currentPuppet.transform.rotation = playerController.transform.rotation;
+		}
 	}
 	
 	void OnEnable() 
 	{
+		playerController = GameObject.FindWithTag("Player");
 		DoomLog.Log("Attempting to connect to server....");
 		Network.Connect("127.0.0.1", 7777, DoomServer.srvPassword);
 	}
@@ -24,11 +33,15 @@ public class DoomClient : MonoBehaviour
 	void OnDisable()
 	{
 		Network.Disconnect();
+		Destroy(currentPuppet);
+		currentPuppet = null;
 	}
 	
 	void OnConnectedToServer() 
 	{
         DoomLog.Log("Client: Connected to server");
+		
+		currentPuppet = Network.Instantiate(puppetPrefab, playerController.transform.position, playerController.transform.rotation, 0) as GameObject;
     }
 	
 	void OnDisconnectedFromServer(NetworkDisconnection info) 

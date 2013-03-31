@@ -10,8 +10,10 @@ public class NetManager : MonoBehaviour
 	GameObject myClient = null;
 		
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		// Avoid Nast background upsets
+		Application.runInBackground = true;	
 	}
 	
 	// Update is called once per frame
