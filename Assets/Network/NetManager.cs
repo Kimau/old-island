@@ -27,7 +27,7 @@ public class NetManager : MonoBehaviour
 		{
 			if(myClient == null)
 			{
-				myClient = Instantiate(server.gameObject) as GameObject;
+				myClient = Instantiate(client.gameObject) as GameObject;
 				myClient.transform.parent = transform;
 			}
 			else

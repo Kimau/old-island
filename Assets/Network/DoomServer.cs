@@ -35,25 +35,25 @@ public class DoomServer : MonoBehaviour
 	{
 		playerList.Add(player);
 		
-		DoomLog.Log("Player " + playerCount++ + " connected from " + player.ipAddress + ":" + player.port);
+		DoomLog.Log("Server: Player " + playerCount++ + " connected from " + player.ipAddress + ":" + player.port);
     }
 	
 	void OnPlayerDisconnected(NetworkPlayer player) 
 	{
 		playerList.Remove(player);
 		
-        DoomLog.Log("Clean up after player " + player);
+        DoomLog.Log("Server: Clean up after player " + player);
         Network.RemoveRPCs(player);
         Network.DestroyPlayerObjects(player);
     }
 	
 	void OnServerInitialized() 
 	{
-        DoomLog.Log("Server initialized and ready");
+        DoomLog.Log("Server: Server initialized and ready");
     }
 	
 	void OnNetworkInstantiate(NetworkMessageInfo info) 
 	{
-        DoomLog.Log("New object instantiated by " + info.sender);
+        DoomLog.Log("Server: New object instantiated by " + info.sender);
     }
 }

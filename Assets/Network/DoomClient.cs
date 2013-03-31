@@ -27,27 +27,27 @@ public class DoomClient : MonoBehaviour
 	
 	void OnConnectedToServer() 
 	{
-        DoomLog.Log("Connected to server");
+        DoomLog.Log("Client: Connected to server");
     }
 	
 	void OnDisconnectedFromServer(NetworkDisconnection info) 
 	{
         if (Network.isServer)
-            DoomLog.Log("Local server connection disconnected");
+            DoomLog.Log("Client: Local server connection disconnected");
         else
             if (info == NetworkDisconnection.LostConnection)
-                DoomLog.Log("Lost connection to the server");
+                DoomLog.Log("Client: Lost connection to the server");
             else
-                DoomLog.Log("Successfully diconnected from the server");
+                DoomLog.Log("Client: Successfully diconnected from the server");
     }
 	
 	void OnFailedToConnect(NetworkConnectionError error)
 	{
-		DoomLog.Log("Could not connect to server: " + error);
+		DoomLog.Log("Client: Could not connect to server: " + error);
 	}
 	
 	void OnNetworkInstantiate(NetworkMessageInfo info) 
 	{
-        DoomLog.Log("New object instantiated by " + info.sender);
+        DoomLog.Log("Client: New object instantiated by " + info.sender);
     }
 }

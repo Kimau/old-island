@@ -27,7 +27,7 @@ public class DoomLog : MonoBehaviour
 			if(oldLineCount != newLineCount)
 			{
 				string[] lines = myText.text.Split("\n"[0]);
-				myTexwt.text = "";
+				myText.text = "";
 				
 				newLineCount = Mathf.Min(lines.Length, newLineCount);
 				
@@ -55,8 +55,16 @@ public class DoomLog : MonoBehaviour
 	void InternalLog(string msg)
 	{
 		Debug.Log("Doom: " + msg);
-		myText.text += "\n" + msg;
-		fadeTimer += timePerLine;
+		string[] newLines = msg.Split("\n"[0]);
+		string[] lines = myText.text.Split("\n"[0]);
+		
+		myText.text = "";
+		for (int i = newLines.Length - 1; i >= 0; i--)
+			myText.text += newLines[i] + "\n";		
+		foreach(string l in lines)
+			myText.text += l + "\n";
+		
+		fadeTimer += (newLines.Length+1) * timePerLine;
 	}
 	
 	static public void Log(string msg)
