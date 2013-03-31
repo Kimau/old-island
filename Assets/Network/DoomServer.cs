@@ -22,6 +22,7 @@ public class DoomServer : MonoBehaviour
 	
 	void OnEnable() 
 	{
+		DoomLog.Log("Starting Server....");
 		bool useNat = !Network.HavePublicAddress();
 		Network.InitializeServer(32, 7777, useNat);
 	}

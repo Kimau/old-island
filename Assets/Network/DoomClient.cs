@@ -17,6 +17,7 @@ public class DoomClient : MonoBehaviour
 	
 	void OnEnable() 
 	{
+		DoomLog.Log("Attempting to connect to server....");
 		Network.Connect("127.0.0.1", 7777, DoomServer.srvPassword);
 	}
 	
