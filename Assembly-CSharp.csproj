@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DoomLog.cs" />
+     <Compile Include="Assets\Lobby\JoinServerButton.cs" />
+     <Compile Include="Assets\Lobby\LobbyButton.cs" />
      <Compile Include="Assets\Network\DoomClient.cs" />
      <Compile Include="Assets\Network\DoomServer.cs" />
      <Compile Include="Assets\Network\NetManager.cs" />

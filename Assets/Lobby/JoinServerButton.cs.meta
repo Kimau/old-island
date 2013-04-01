@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 37fe72ca89e2fad4dbf5ba2d8523a388
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - clientNetPrefab: {fileID: 11400000, guid: 283ea70c774c64c4e9c1e7fc43d8b0fe, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

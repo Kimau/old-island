@@ -5,12 +5,16 @@ using System.Collections.Generic;
 public class DoomServer : MonoBehaviour 
 {
 	public static string srvPassword = "DoomIsland";
+	public int listenPort = 7777;
+	public int players = 8;
 	private int playerCount = 0;
 	List<NetworkPlayer> playerList;
 	
 	// Use this for initialization
 	void Start () 
 	{
+		Application.runInBackground = true;	
+		DontDestroyOnLoad(gameObject);
 		playerList = new List<NetworkPlayer>();
 		Network.incomingPassword = srvPassword;
 	}
@@ -20,16 +24,26 @@ public class DoomServer : MonoBehaviour
 	
 	}
 	
+	public void StartGame()
+	{
+		Application.LoadLevel("TestSection");
+	}
+	
 	void OnEnable() 
 	{
 		DoomLog.Log("Starting Server....");
 		bool useNat = !Network.HavePublicAddress();
-		Network.InitializeServer(32, 7777, useNat);
+		Network.InitializeServer(players, listenPort, useNat);
 	}
 	
 	void OnDisable()
 	{
 		Network.Disconnect();
+	}
+	
+	void OnDisconnectedFromServer(NetworkDisconnection info) 
+	{
+		Application.LoadLevel("Lobby");
 	}
 	
     void OnPlayerConnected(NetworkPlayer player) 
