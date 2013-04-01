@@ -49,7 +49,7 @@
      <Compile Include="Assets\Lobby\LobbyButton.cs" />
      <Compile Include="Assets\Network\DoomClient.cs" />
      <Compile Include="Assets\Network\DoomServer.cs" />
-     <Compile Include="Assets\Network\NetManager.cs" />
+     <Compile Include="Assets\Network\NetworkLevelLogic.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

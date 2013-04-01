@@ -13,7 +13,6 @@ public class DoomLog : MonoBehaviour
 	void Start () 
 	{
 		fadeTimer = 0.0f;
-		myText = GetComponent<GUIText>();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +43,7 @@ public class DoomLog : MonoBehaviour
 	void OnEnable() 
 	{
 		lastDebugLog = this;
+		myText = GetComponent<GUIText>();
 	}
 	
 	void OnDisable()

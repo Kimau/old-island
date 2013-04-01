@@ -49,7 +49,7 @@
      <Compile Include="Assets\Lobby\LobbyButton.cs" />
      <Compile Include="Assets\Network\DoomClient.cs" />
      <Compile Include="Assets\Network\DoomServer.cs" />
-     <Compile Include="Assets\Network\NetManager.cs" />
+     <Compile Include="Assets\Network\NetworkLevelLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
